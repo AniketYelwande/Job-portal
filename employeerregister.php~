@@ -1,0 +1,105 @@
+<html>
+<head>
+<?php
+include("includes/head.inc.php");
+?>
+</head>
+<div id="header-wrapper">
+         <div id="header">
+         <div id="menu">
+                 <?php
+                  include("includes/menu.inc.php");
+                  ?>
+                  </div>
+                  <!--end #menu-->
+                  <div id="search">
+                  <?php
+
+                  include("includes/search.inc.php");
+                  ?>
+                   </div>
+                   <!--end #search-->
+
+          </div>
+</div>
+<!--end #header-wrapper-->
+<!--end #header-wrapper-->
+<div id="logo">
+         <?php
+         include("includes/logo.inc.php");
+         ?>
+         </div>
+<div id="wrapper">
+        <div id ="page">
+                  <div id="page-bgtop">
+                           <hr />
+                           <!--end #logo-->
+                           <div id="content">
+				    <div class="post">
+					
+				        <h2 class="title" style="text-decoration:underline;">REGISTER</a></h2> 
+ 				        <p class="meta">Please fill up the form</p> 
+					  <div class="entry">
+					        <form action="process_employer_register.php" method="post">
+			<pre>											
+				FULL NAME  <input type="text" name="nm" style="width:200px;"> <br>
+				PASSWORD   <input type="password" name="pwd" style="width:200px;"> <br><br>
+			     COMPANY NAME  <input type="text" name="cnm" style="width:200px;"><br>					
+			   COMPANY ADDRESS <textarea name="addr" style="width:200px;"> </textarea> <br>
+				PHONE NO.  <input type="text" name="ph" style="width:200opx;"> <br>				    	  			     
+		                 EMAIL     <input type="text" name="email" style="width:200px;"> <br>
+			   COMPANY PROFILE <textarea name="profile" style="width:200px;" > </textarea> <br>
+			</pre>				  
+				<center><br> <input type="submit" value="submit"></center>
+						
+				</form>
+		       		 </div>
+			</div>
+		</div>  <!-- END CONTENT -->
+				<div id="sidebar">
+				<?php
+				include("includes/sidebar.inc.php");
+				?>
+				</div>  <!-- END SIDEBAR-->
+
+				<div style="clear:both;">&nbsp;</div>
+
+				</div>
+			</div>
+		</div> <!-- END PAGE -->
+
+		<div id="footer-bgcontent">
+			<div id="footer">
+				<?php 
+					include("includes/footer.inc.php");
+				?>
+			</div>
+		</div>  <!-- END FOOTER-->
+
+	</body>
+</html>
+
+
+		
+				    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      

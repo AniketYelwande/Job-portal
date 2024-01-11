@@ -1,0 +1,103 @@
+<?php session_start();
+
+	if(!isset($_SESSION['status']))
+	{
+		header("location:index.php");
+	}
+
+	$conn=pg_connect("host=192.168.16.1 user=TYA17 password= dbname=jobscope");
+
+	$q="select * from employees where ee_id in(select a_id from applicants where a_jid=".$_GET['id'].")";
+
+	$res=pg_query($conn,$q) or die("query Failed");
+
+ ?>
+
+<html>
+	<head>
+	<?php
+		include("includes/head.inc.php");
+	?>
+	</head>
+
+	<body>
+	<div id="header-wrapper">
+		<div id="header">
+		<div id="menu">
+			<?php
+				include("includes/menu.inc.php");
+			?>
+		</div>
+			<!-- end #menu-->
+		<div id="search">
+			<?php
+                                include("includes/search.inc.php");
+                        ?>
+		</div>
+			<!-- end #search-->
+		</div>
+			<!-- end #header-->
+	</div>
+		<!-- end #header-wrapper-->
+	 <div id="logo">
+                        <?php
+                                include("includes/logo.inc.php");
+                        ?>
+         </div>
+                 <!-- end logo-->
+	 
+	<div id="wrapper">
+	<div id="page">
+	<div id="page-bgtop">
+                 <div id="content">
+			<div class="post">
+				<h2 class="title"> <?php echo $_GET['nm']; ?> </h2>
+
+				<p class="meta"> </p>
+				<div class="entry">
+				
+				<table border="0" width="100%">
+					<tr>
+						<td width="10%">NO
+						<td width="50%">Name
+						<td width="30%">Resume
+					</tr>
+					<?php
+						$count=1;
+
+						while($row=pg_fetch_array($res))
+						{
+						  echo '<tr> 
+								<td width="10%">'.$count.'
+								<td width="50%">'.$row['ee_fnm'].;
+							//	<td width="30%"><a href="'.$row['ee_resume'].'"'>Resume</a>
+						 $count++;
+						}
+					?>
+				</table>
+				</div>
+			</div>
+		</div>    <!-- END CONTENT -->
+
+			<div id="sidebar">
+				<?php
+				include("includes/sidebar.inc.php");
+				?>
+				</div>  <!-- END SIDEBAR-->
+
+				<div style="clear:both;">&nbsp;</div>
+
+				</div>
+			</div>
+		</div> <!-- END PAGE -->
+
+		<div id="footer-bgcontent">
+			<div id="footer">
+				<?php 
+					include("includes/footer.inc.php");
+				?>
+			</div>
+		</div>  <!-- END FOOTER-->
+
+	</body>
+</html>
